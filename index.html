@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Footer Hide on Scroll</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="content">
-    <h1>Scroll down</h1>
-    <p>Some long content...</p>
-    <p style="height: 1500px;"></p>
-  </div>
+  <header>
+    <h1>Scroll Down to Hide Footer</h1>
+  </header>
+
+  <main>
+    <p>Scroll to test footer hiding...</p>
+    <!-- Add dummy content -->
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet...</p>
+      <p>Keep scrolling to test the footer...</p>
+      <p style="margin-bottom: 1000px;">More content here</p>
+    </div>
+  </main>
 
   <footer id="footer">
-    Footer goes here
+    🚀 This footer hides on scroll down, and shows on scroll up.
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Detect if the page is being displayed inside the WebView
+    const isInFlutterWebView = navigator.userAgent.includes('MyFlutterAppWebView');
+    
+    if (isInFlutterWebView) {
+      const footer = document.querySelector('#footer');
+      if (footer) {
+        // Initially hide the footer in the WebView
+        footer.style.display = 'none';
+      }
+    }
+
+    // Hiding or showing footer based on scroll position (Works for WebView and regular browser)
+    window.addEventListener('scroll', function() {
+      const footer = document.querySelector('#footer');
+      if (footer) {
+        if (window.scrollY > 100) { // Hide when scrolled down
+          footer.style.display = 'none';
+        } else { // Show when scrolled up
+          footer.style.display = 'block';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
