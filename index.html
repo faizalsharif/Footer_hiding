@@ -2,52 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Footer Hide on Scroll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Web Page</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Scroll Down to Hide Footer</h1>
+    <h1>🌐 My Simple Website</h1>
+    <button id="toggleTheme">🌓 Toggle Theme</button>
   </header>
 
   <main>
-    <p>Scroll to test footer hiding...</p>
-    <!-- Add dummy content -->
-    <div class="content">
-      <p>Lorem ipsum dolor sit amet...</p>
-      <p>Keep scrolling to test the footer...</p>
-      <p style="margin-bottom: 1000px;">More content here</p>
-    </div>
+    <section>
+      <h2>Welcome!</h2>
+      <p>This is a simple static website built using HTML, CSS, and JavaScript.</p>
+      <p>Click the button in the header to toggle dark/light themes. 😎</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae.</p>
+    </section>
   </main>
 
-  <footer id="footer">
-    🚀 This footer hides on scroll down, and shows on scroll up.
+  <footer>
+    <p>🚀 Created with 💖 by You</p>
   </footer>
 
-  <script>
-    // Detect if the page is being displayed inside the WebView
-    const isInFlutterWebView = navigator.userAgent.includes('MyFlutterAppWebView');
-    
-    if (isInFlutterWebView) {
-      const footer = document.querySelector('#footer');
-      if (footer) {
-        // Initially hide the footer in the WebView
-        footer.style.display = 'none';
-      }
-    }
-
-    // Hiding or showing footer based on scroll position (Works for WebView and regular browser)
-    window.addEventListener('scroll', function() {
-      const footer = document.querySelector('#footer');
-      if (footer) {
-        if (window.scrollY > 100) { // Hide when scrolled down
-          footer.style.display = 'none';
-        } else { // Show when scrolled up
-          footer.style.display = 'block';
-        }
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
